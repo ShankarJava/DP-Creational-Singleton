@@ -12,8 +12,13 @@ public class Employee implements Cloneable, Serializable {
 		// Employee emp3 = constructors[0].newInstance();
 		// we can throw a runtime exception in private constructor if singleton
 		// class is already initialized.
-		if (EMPLOYEE_INSTANCE != null)
-			throw new RuntimeException("DONT BREAK SINGLETON, OBJECT CREATION IS NOT ALLOWED - THRU REFLECTION(CONSTRUCTOR)");
+		
+/*		 To overcome above issue we can use enum also, as java internally
+		 instantiated enum value only once. The main drawback of enum is that
+		 it doesn’t support lazy initialization.
+*/		if (EMPLOYEE_INSTANCE != null)
+			throw new RuntimeException(
+					"DONT BREAK SINGLETON, OBJECT CREATION IS NOT ALLOWED - THRU REFLECTION(CONSTRUCTOR)");
 
 	}
 
@@ -58,7 +63,7 @@ public class Employee implements Cloneable, Serializable {
 		System.out.println("rr");
 		return EMPLOYEE_INSTANCE;
 	}
-	// BillPugh 
+	// BillPugh
 	// private static class EmployeeHelper {
 	// private static final Employee EMPLOYEE_INSTANCE = new Employee();
 	//
